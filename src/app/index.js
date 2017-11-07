@@ -9,7 +9,7 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			resultyt: [],
-			maxRes: 5
+			maxRes: null
 		};
 	}
 	clicked()
@@ -28,10 +28,10 @@ class App extends React.Component {
       });
 		console.log("Clcked");
 	}
-	changeMaxRes()
+	changeMaxRes(event)
 	{
 		this.setState({
-			maxRes: 10,
+			maxRes:  event.target.value,
 		});
 		console.log("maxRes1 = " + this.state.maxRes);
 	}
@@ -45,7 +45,7 @@ class App extends React.Component {
 			<div className="container text text-center" >
 			<br/>
 			<br/>
-			<input type="number" onChange = {this.changeMaxRes.bind(this)} /> 
+			<input type="number" value= {this.state.value} onChange = {this.changeMaxRes.bind(this)} /> 
 			<br/>
 			<br/>
 			<button className="btn btn-success" onClick = {this.clicked.bind(this)}>Get Vines </button>
